@@ -4,6 +4,9 @@ import static org.bytedeco.javacpp.opencv_core.cvFlip;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
+import java.awt.image.WritableRaster;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -36,13 +39,19 @@ public class FirebendingMain extends JPanel {
 			}
 		}, 0, 1000 / 60);
 	}
-	
+
 	private static final long serialVersionUID = 4486604239167882738L;
+	ArrayList<Vertex> vertices;
+	BufferedImage background;
 	FrameGrabber grabber;
 	OpenCVFrameConverter.ToIplImage converter;
 	IplImage img;
+	int bgTimer;
 
 	public FirebendingMain() {
+		vertices = new ArrayList<Vertex>();
+		bgTimer = 0;
+		background = null;
 		grabber = new VideoInputFrameGrabber(0);
 		converter = new OpenCVFrameConverter.ToIplImage();
 		try {
@@ -50,22 +59,56 @@ public class FirebendingMain extends JPanel {
 		} catch (org.bytedeco.javacv.FrameGrabber.Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		this.setPreferredSize(new Dimension(640, 480));
 	}
-	
+
 	public void paintComponent(Graphics gr) {
-		Frame frame;
+		BufferedImage image = null;
+
 		try {
-			frame = grabber.grab();
+			Frame frame = grabber.grab();
 			img = converter.convert(frame);
 			// the grabbed frame will be flipped, re-flip to make it right
 			cvFlip(img, img, 1);// l-r = 90_degrees_steps_anti_clockwise
-			
-			gr.drawImage(IplImageToBufferedImage(img), 0, 0, null);
+
+			image = IplImageToBufferedImage(img);
+			if(bgTimer < 30) {
+				bgTimer++;
+			} else if(bgTimer == 30) {
+				bgTimer++;
+				background = deepCopy(image);
+			}
 		} catch (org.bytedeco.javacv.FrameGrabber.Exception e) {
 			e.printStackTrace();
 		}
+
+		boolean[][] pixels = new boolean[640][480];
+		if(background != null) {
+			for (int x = 0; x < image.getWidth(); x++) {
+				for (int y = 0; y < image.getHeight(); y++) {
+					int bgRGB = background.getRGB(x, y), iRGB = image.getRGB(x, y);
+					if (Math.abs((bgRGB >> 16) & 0xFF - (iRGB >> 16) & 0xFF) + Math.abs((bgRGB >> 8) & 0xFF - (iRGB >> 8) & 0xFF) +
+							Math.abs(bgRGB & 0xFF - iRGB & 0xFF) > 160) {
+						if(vertices.size() == 0) {
+							vertices.add(new Vertex(x, y));
+						}
+						pixels[x][y] = true;
+					}
+				}
+			}
+		}
+		
+		
+		
+		gr.drawImage(image, 0, 0, null);
+	}
+
+	public static BufferedImage deepCopy(BufferedImage bi) {
+		ColorModel cm = bi.getColorModel();
+		boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
+		WritableRaster raster = bi.copyData(null);
+		return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
 	}
 
 	/**
