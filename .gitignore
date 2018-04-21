@@ -1,5 +1,4 @@
 .bin/
 .settings/
 *.class
-*.java
 *.jar
