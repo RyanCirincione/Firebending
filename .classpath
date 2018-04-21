@@ -2,23 +2,23 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/artoolkitplus.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/artoolkitplus-windows-x86_64.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/ffmpeg.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/ffmpeg-windows-x86_64.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/flandmark.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/flandmark-windows-x86_64.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/flycapture.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/flycapture-windows-x86_64.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/javacpp.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/javacv.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/libdc1394.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/libdc1394-windows-x86_64.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/librealsense.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/librealsense-windows-x86_64.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/opencv.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/opencv-windows-x86_64.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/videoinput.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ryan/Downloads/javacv-platform-1.4.1-bin/javacv-bin/videoinput-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="artoolkitplus.jar"/>
+	<classpathentry kind="lib" path="artoolkitplus-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="ffmpeg.jar"/>
+	<classpathentry kind="lib" path="ffmpeg-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="flandmark.jar"/>
+	<classpathentry kind="lib" path="flandmark-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="flycapture.jar"/>
+	<classpathentry kind="lib" path="flycapture-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="javacpp.jar"/>
+	<classpathentry kind="lib" path="javacv.jar"/>
+	<classpathentry kind="lib" path="libdc1394.jar"/>
+	<classpathentry kind="lib" path="libdc1394-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="librealsense.jar"/>
+	<classpathentry kind="lib" path="librealsense-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="opencv.jar"/>
+	<classpathentry kind="lib" path="opencv-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="videoinput.jar"/>
+	<classpathentry kind="lib" path="videoinput-windows-x86_64.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
