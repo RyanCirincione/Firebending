@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -12,6 +13,15 @@ public class Firegenerator
 			{
 				if(current.distance2(current.x, current.y, center.x, center.y)>300)
 				{//distance from center is the sqrt of the integer value
+					int changeX = (int)(current.x - current.px);
+					int changeY = (int)(current.y - current.py);
+					int pixelx = (int)(current.x);
+					int pixely = (int)(current.y);
+					while(pixely>0&&pixely>480&&pixelx<0&&pixelx<480)
+					{
+						video.setColor(Color.RED);
+						video.drawRect(pixelx, pixely, 10, 10);
+					}
 					
 				}
 			}
