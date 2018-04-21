@@ -68,23 +68,6 @@ public class FirebendingMain extends JPanel {
 		}
 	}
 
-	public void run() {
-		try {
-			while (true) {
-				Frame frame = grabber.grab();
-
-				img = converter.convert(frame);
-
-				// the grabbed frame will be flipped, re-flip to make it right
-				cvFlip(img, img, 1);// l-r = 90_degrees_steps_anti_clockwise
-
-				Thread.sleep(1);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	/**
 	 * Copy/pasted, converts IplImage to BufferedImage
 	 * 
