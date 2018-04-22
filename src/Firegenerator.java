@@ -6,17 +6,9 @@ public class Firegenerator
 {
 	static int[][] heat = new int[640][480];
 	static boolean flip = true;//test del later
-	static public void paintFire(Graphics video, ArrayList<Vertex> blah)//verices going clockwise
+	static public void paintFire(Graphics video, ArrayList<Vertex> vertices)//verices going clockwise
 	{
-		//block to remove <block>
-		ArrayList<Vertex> vertices =new ArrayList<Vertex>();
-		vertices.add(new Vertex(120,120));//hard code test case remove later
-		vertices.get(0).px = 115;
-		vertices.get(0).py = 115;
-		vertices.get(0).heat = 50;
-		//blockto remove </block>
 		System.out.println(vertices.size());//test delete later
-		
 		for(int i = 0; i < heat.length; i++)
 		{
 			for(int j = 0; j < heat[i].length;j++)
@@ -35,20 +27,11 @@ public class Firegenerator
 			}
 		}
 		Vertex center = findCenter(vertices);//sets Vertex Center to the centerish of the shape
-		
-			if(vertices.get(0).x < 590 && flip)
-			{
-				vertices.get(0).update(vertices.get(0).x+5, vertices.get(0).y);
-			}
-			else if(vertices.get(0).x > 50&&!flip)
-			{
-				vertices.get(0).update(vertices.get(0).x-5, vertices.get(0).y);
-			}
 		for(Vertex current : vertices)
 		{
-			if(current.heat > 10||true)//arbitrary number up to change to determine fire creation
+			if(current.heat > 10)//arbitrary number up to change to determine fire creation
 			{
-				if(current.distance2(current.x, current.y, center.x, center.y)>300||true)//kill trues
+				if(current.distance2(current.x, current.y, center.x, center.y)>300)//kill trues
 				{//distance from center is the sqrt of the integer value
 					Color fire = new Color(255, 1, 0);
 					int changeX = (int)(current.x - current.px);

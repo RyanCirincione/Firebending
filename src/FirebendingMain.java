@@ -194,6 +194,7 @@ public class FirebendingMain extends JPanel {
 					} while (cX != sX || cY != sY);
 				}
 			}
+			Firegenerator.paintFire(gr, vertices);
 		}
 		gr.setColor(Color.white);
 		for (int x = 0; x < pixels.length; x++) {
@@ -227,7 +228,7 @@ public class FirebendingMain extends JPanel {
 				break;
 			}
 		}
-
+		
 		gr.setColor(Color.white);
 		gr.fillRect(0, 485, 40, 20);
 		gr.setColor(Color.blue);
