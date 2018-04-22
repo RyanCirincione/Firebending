@@ -16,13 +16,13 @@ public class Firegenerator
 			{
 				if(heat[i][j]!=0)
 				{
-					if(heat[i][j] < 20||heat[i][j]<0)
+					if(heat[i][j] <= 10)
 					{
 						heat[i][j] =0;
 					}
 					else if(heat[i][j]>10)
 					{
-						heat[i][j] = heat[i][j] -10;
+						heat[i][j] = heat[i][j] -5;
 					}
 				}
 			}
@@ -30,9 +30,9 @@ public class Firegenerator
 		Vertex center = findCenter(vertices);//sets Vertex Center to the centerish of the shape
 		for(int i = 1; i < vertices.size()-1; i++)
 		{
-			if(vertices.get(i).heat > 1)//arbitrary number up to change to determine fire creation
+			if(vertices.get(i).heat > 15)//arbitrary number up to change to determine fire creation
 			{
-				if(vertices.get(i).distance2(vertices.get(i).x, vertices.get(i).y, center.x, center.y)>300)//kill trues
+				if(vertices.get(i).distance2(vertices.get(i).x, vertices.get(i).y, center.x, center.y)>100*100)//kill trues
 				{//distance from center is the sqrt of the integer value
 				double changex = ((vertices.get(i).x-vertices.get(i-1).x)*-1) + (vertices.get(i).x-vertices.get(i+1).x)*-1;
 				double changey = ((vertices.get(i).y-vertices.get(i-1).y)*-1) + ((vertices.get(i).y-vertices.get(i+1).y)*-1);
@@ -40,7 +40,7 @@ public class Firegenerator
 //				System.out.println("d: " + d + " x: " + changex + " y: " + changey + " " + vertices.get(i) + ",  " +
 //				vertices.get(i-1) + ", " + vertices.get(i+1));//TODO delete
 				circs.add(new Circle((int)(vertices.get(i).x+changex),(int)(vertices.get(i).y+changey),
-						vertices.get(i).heat*10,changex*20/d,changey*20/d));//heer 
+						vertices.get(i).heat*4,changex*10/d,changey*10/d));//heer 
 					
 //					Color fire = new Color(255, 1, 0);
 //					int changeX = (int)(current.x - current.px);
@@ -78,7 +78,7 @@ public class Firegenerator
 				for(int y = (int) Math.max(0, (circs.get(i).posy - circs.get(i).radius)); 
 					y < Math.min(480, circs.get(i).posy+circs.get(i).radius);y++)
 				{
-					heat[x][y] = (int) (circs.get(i).heat*(10-Math.sqrt(Math.sqrt(Vertex.distance2(x, y, circs.get(i).posx, circs.get(i).posy)))));
+					heat[x][y] += (int) Math.max(0,circs.get(i).heat*(8-Math.sqrt(Math.sqrt(Vertex.distance2(x, y, circs.get(i).posx, circs.get(i).posy)))));
 //					System.out.println(heat[x][y]);
 					if(heat[x][y]>125)
 					{
