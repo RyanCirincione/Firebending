@@ -26,7 +26,7 @@ public class Vertex {
 		}
 	}
 	
-	public double distance2(double x1, double y1, double x2, double y2) {
+	public static double distance2(double x1, double y1, double x2, double y2) {
 		return Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2);
 	}
 	
