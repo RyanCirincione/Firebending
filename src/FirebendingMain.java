@@ -216,7 +216,7 @@ public class FirebendingMain extends JPanel {
 		}
 
 		for (int i = 0; i < vertices.size() - 1; i++) {
-			gr.setColor(Color.red);
+			gr.setColor(Color.cyan);
 			gr.drawLine((int) vertices.get(i).x, (int) vertices.get(i).y, (int) vertices.get(i + 1).x,
 					(int) vertices.get(i + 1).y);
 			gr.drawLine(641 + (int) vertices.get(i).x, (int) vertices.get(i).y, 641 + (int) vertices.get(i + 1).x,

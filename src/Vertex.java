@@ -22,7 +22,7 @@ public class Vertex {
 		this.heat /= 1.1;
 		double d = distance2(x, y, px, py);
 		if(d < 10*10) {
-			this.heat += d / 2; //change
+			this.heat += d / 10; //change
 		}
 	}
 	
