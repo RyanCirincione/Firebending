@@ -52,7 +52,7 @@ public class FirebendingMain extends JPanel {
 	int bgTimer, threshold;
 
 	public FirebendingMain() {
-		threshold = 100;
+		threshold = 75;
 		vertices = new ArrayList<Vertex>();
 		for (int i = 0; i < 90; i++) {
 			vertices.add(new Vertex(0, 0));
@@ -112,7 +112,7 @@ public class FirebendingMain extends JPanel {
 					int bgRGB = background.getRGB(x, y), iRGB = image.getRGB(x, y);
 					if (Math.abs(((bgRGB >> 16) & 0xFF) - ((iRGB >> 16) & 0xFF))
 							+ Math.abs(((bgRGB >> 8) & 0xFF) - ((iRGB >> 8) & 0xFF))
-							+ Math.abs((bgRGB & 0xFF) - (iRGB & 0xFF)) > 100) {
+							+ Math.abs((bgRGB & 0xFF) - (iRGB & 0xFF)) > threshold) {
 						pixels2[x][y] = true;
 					}
 				}
