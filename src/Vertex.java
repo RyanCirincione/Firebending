@@ -19,7 +19,7 @@ public class Vertex {
 		py = this.y;
 		this.y = y;
 		
-		this.heat -= 0.05;
+		this.heat /= 1.1;
 		double d = distance2(x, y, px, py);
 		if(d < 10*10) {
 			this.heat += d / 100; 
@@ -28,5 +28,9 @@ public class Vertex {
 	
 	public double distance2(double x1, double y1, double x2, double y2) {
 		return Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2);
+	}
+	
+	public String toString() {
+		return "<" + x + ", " + y + ">";
 	}
 }
