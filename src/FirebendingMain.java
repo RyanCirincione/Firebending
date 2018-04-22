@@ -65,7 +65,6 @@ public class FirebendingMain extends JPanel {
 
 	public void paintComponent(Graphics gr) {
 		BufferedImage image = null;
-
 		try {
 			Frame frame = grabber.grab();
 			img = converter.convert(frame);
@@ -99,7 +98,8 @@ public class FirebendingMain extends JPanel {
 			}
 		}
 		
-		
+		Firegenerator.paintFire(image.getGraphics(), vertices);
+		//good spot image.getGraphics
 		
 		gr.drawImage(image, 0, 0, null);
 	}
