@@ -52,7 +52,7 @@ public class FirebendingMain extends JPanel {
 	int bgTimer, threshold;
 
 	public FirebendingMain() {
-		threshold = 75;
+		threshold = 100;
 		vertices = new ArrayList<Vertex>();
 		for (int i = 0; i < 90; i++) {
 			vertices.add(new Vertex(0, 0));
@@ -80,7 +80,7 @@ public class FirebendingMain extends JPanel {
 		this.setFocusable(true);
 		this.requestFocus();
 
-		this.setPreferredSize(new Dimension(640 * 2, 510));
+		this.setPreferredSize(new Dimension(640, 510));
 	}
 
 	public void paintComponent(Graphics gr) {
@@ -196,38 +196,38 @@ public class FirebendingMain extends JPanel {
 			}
 			Firegenerator.paintFire(gr, vertices);
 		}
-		gr.setColor(Color.white);
-		for (int x = 0; x < pixels.length; x++) {
-			for (int y = 0; y < pixels[x].length; y++) {
-				if (pixels[x][y]) {
-					gr.fillRect(x, y, 1, 1);
-				}
-			}
-		}
-
-		gr.drawImage(image, 641, 0, null);
-		gr.setColor(Color.white);
-		for (int x = 0; x < pixels.length; x++) {
-			for (int y = 0; y < pixels[x].length; y++) {
-				if (pixels2[x][y]) {
-					gr.fillRect(641 + x, y, 1, 1);
-				}
-			}
-		}
-
-		for (int i = 0; i < vertices.size() - 1; i++) {
-			gr.setColor(Color.cyan);
-			gr.drawLine((int) vertices.get(i).x, (int) vertices.get(i).y, (int) vertices.get(i + 1).x,
-					(int) vertices.get(i + 1).y);
-			gr.drawLine(641 + (int) vertices.get(i).x, (int) vertices.get(i).y, 641 + (int) vertices.get(i + 1).x,
-					(int) vertices.get(i + 1).y);
-			
-			gr.fillRect((int)(vertices.get(i).x-1), (int)(vertices.get(i).y-1), 3, 3);
-
-			if (vertices.get(i).x < 0.1 && vertices.get(i).y < 0.1) {
-				break;
-			}
-		}
+//		gr.setColor(Color.white);
+//		for (int x = 0; x < pixels.length; x++) {
+//			for (int y = 0; y < pixels[x].length; y++) {
+//				if (pixels[x][y]) {
+//					gr.fillRect(x, y, 1, 1);
+//				}
+//			}
+//		}
+//
+//		gr.drawImage(image, 641, 0, null);
+//		gr.setColor(Color.white);
+//		for (int x = 0; x < pixels.length; x++) {
+//			for (int y = 0; y < pixels[x].length; y++) {
+//				if (pixels2[x][y]) {
+//					gr.fillRect(641 + x, y, 1, 1);
+//				}
+//			}
+//		}
+//
+//		for (int i = 0; i < vertices.size() - 1; i++) {
+//			gr.setColor(Color.cyan);
+//			gr.drawLine((int) vertices.get(i).x, (int) vertices.get(i).y, (int) vertices.get(i + 1).x,
+//					(int) vertices.get(i + 1).y);
+//			gr.drawLine(641 + (int) vertices.get(i).x, (int) vertices.get(i).y, 641 + (int) vertices.get(i + 1).x,
+//					(int) vertices.get(i + 1).y);
+//			
+//			gr.fillRect((int)(vertices.get(i).x-1), (int)(vertices.get(i).y-1), 3, 3);
+//
+//			if (vertices.get(i).x < 0.1 && vertices.get(i).y < 0.1) {
+//				break;
+//			}
+//		}
 		
 		gr.setColor(Color.white);
 		gr.fillRect(0, 485, 40, 20);

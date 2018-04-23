@@ -97,7 +97,7 @@ public class Firegenerator
 			{
 				if(heat[i][j]>30)
 				{
-					video.setColor(new Color(255,heat[i][j]*2,0));
+					video.setColor(new Color(255,heat[i][j]*2,0,198));
 					video.fillRect(i, j, 1, 1);
 				}
 			}
